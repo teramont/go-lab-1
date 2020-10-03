@@ -1,16 +1,18 @@
 package main
 
 import (
-	"net/http"
+  "encoding/json"
+  "net/http"
+  "time"
 )
 
 type Time struct {
-	Now string
+  Now string
 }
 
 func main() {
-	http.HandleFunc("/time", mainHandler)
-	http.ListenAndServe(":8795", nil)
+  http.HandleFunc("/time", mainHandler)
+  http.ListenAndServe(":8795", nil)
 }
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
@@ -25,7 +27,3 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   w.Write(timeJson)
 }
-
-//test
-// first
-//test
