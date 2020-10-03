@@ -13,4 +13,17 @@ func main() {
 	http.ListenAndServe(":8795", nil)
 }
 
+func mainHandler(w http.ResponseWriter, r *http.Request) {
+
+  now := time.Now()
+  timeFormated := now.Format(time.RFC3339)
+
+  timeObj := &Time{timeFormated}
+
+  timeJson, _ := json.Marshal(timeObj)
+
+  w.Header().Set("Content-Type", "application/json")
+  w.Write(timeJson)
+}
+
 //end1
