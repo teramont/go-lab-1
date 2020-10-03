@@ -6,4 +6,8 @@ import (
   "time"
 )
 
+type Time struct {
+  Now string
+}
+
 //end1
