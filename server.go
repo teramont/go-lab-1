@@ -27,9 +27,4 @@ func mainHandler(w http.ResponseWriter, r *http.Request) {
   w.Header().Set("Content-Type", "application/json")
   w.Write(timeJson)
 }
-<<<<<<< HEAD
-=======
 
-
-//try 801
->>>>>>> 21:28
