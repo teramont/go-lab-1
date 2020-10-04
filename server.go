@@ -1,14 +1,17 @@
 package main
 
+
 import (
   "encoding/json"
   "net/http"
   "time"
 )
 
+
 type Time struct {
   Now string
 }
+
 
 func main() {
   http.HandleFunc("/time", mainHandler)
