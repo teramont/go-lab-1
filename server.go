@@ -1,11 +1,13 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
+	"time"
 )
 
 type Time struct {
-	Now string
+	Now string `json:"time"`
 }
 
 func main() {
@@ -15,15 +17,15 @@ func main() {
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
 
-  now := time.Now()
-  timeFormated := now.Format(time.RFC3339)
+	now := time.Now()
+	timeFormated := now.Format(time.RFC3339)
 
-  timeObj := &Time{timeFormated}
+	timeObj := &Time{timeFormated}
 
-  timeJson, _ := json.Marshal(timeObj)
+	timeJson, _ := json.Marshal(timeObj)
 
-  w.Header().Set("Content-Type", "application/json")
-  w.Write(timeJson)
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(timeJson)
 }
 
 //end1
